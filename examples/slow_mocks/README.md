@@ -163,4 +163,8 @@ Running the "make_fast_code.sh" script changes the code according to the advice 
     p-value      :    0.00000
     (a p-value smaller than 0.05 indicates a significant change)
 
-
+As you can see from this report, the compilation times of all test cases that use mocks have improved. 
+The compilation time of 'test_a.cpp' slowed down, but in total about 13 seconds are saved. 
+This change is 92 standard deviations from the previous mean and the p-value is 0.
+Therefore, we can conclude that this change is a significant improvement of the compile times and the tips
+from the google mock cookbook do work!
