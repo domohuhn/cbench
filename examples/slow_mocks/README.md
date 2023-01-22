@@ -97,6 +97,10 @@ Now its time to get a coffee, as this may take a few minutes. After the command 
        7360.80 ms (+-     32.20 ms) : CMakeFiles/test_example_lib.dir/test/test_two.cpp.obj
        8089.40 ms (+-      9.86 ms) : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj
 
+You will get a report with all files that were compiled sorted by their compile time. If you want to improve the compilation times, look at the slowest files to compile.
+You may want to compile them with flags like -ftime-trace and analyze the output to see where most of the time is spent while compiling. In our case, we can see that the
+test cases are the slowest files to compile. The googletest cookbook contains a section how to [Make Compilation Faster](https://github.com/google/googletest/blob/main/docs/gmock_cook_book.md#making-the-compilation-faster). We will use the advice from there to speed up our compilation process.
+
 ## How to reduce noise
 
 If the baseline shows a lot of noise (high standard deviations, more than 100ms per file), there are certain steps you can try to reduce the noise:
@@ -158,3 +162,5 @@ Running the "make_fast_code.sh" script changes the code according to the advice 
     Change/stddev:       92.4
     p-value      :    0.00000
     (a p-value smaller than 0.05 indicates a significant change)
+
+
